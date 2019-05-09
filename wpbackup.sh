@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BKPDIR=/local/backup/directory
-WEBROOT=/wordpress/install/directory/
+BKPDIR=/home/loidolt/backup/
+WEBROOT=/var/www/html/
 SITENAME=example
 
 DBHOST=$(grep DB_HOST $WEBROOT/wp-config.php | awk -F\' '{print$4}')
