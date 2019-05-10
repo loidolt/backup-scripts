@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Set to run daily 0 3 1 * * /usr/local/bin/backup-database-daily.sh
+## Set to run daily 0 3 * * * /usr/local/bin/backup-scripts/backup-database-daily.sh
 
 SITENAME=example
 WEBROOT=/var/www/html/$SITENAME
