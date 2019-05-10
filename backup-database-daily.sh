@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Set to run monthly 0 3 1 * * /usr/local/bin/backup-monthly.sh
+## Set to run daily 0 3 1 * * /usr/local/bin/backup-database-daily.sh
 
 SITENAME=example
 WEBROOT=/var/www/html/$SITENAME
@@ -14,9 +14,8 @@ DBDUMP=/var/tmp/"$DBNAME"_$(date +"%Y-%m-%d-%H-%M").sql
 # Backup Database
 mysqldump -h $DBHOST -u $DBUSER -p$DBPASSWORD $DBNAME > $DBDUMP
 
-# Backup Site Files and Database to Google Cloud Storage
-gsutil -m rsync -r $WEBROOT gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
-gsutil -m rsync $DBDUMP gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
+# Send To Google Cloud Storage
+gsutil -m rsync $DBDUMP gs://$SITENAME-backup/shapshot-database/
 
 # Remove Temporary Files
 rm $DBDUMP
