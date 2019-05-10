@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Set to run monthly 0 3 1 * * /usr/local/bin/backup-scripts/backup-monthly.sh
+## Set to run monthly 0 21 1 * * /usr/local/bin/backup-scripts/backup-monthly.sh
 
 SITENAME=example
 WEBROOT=/var/www/html/$SITENAME
