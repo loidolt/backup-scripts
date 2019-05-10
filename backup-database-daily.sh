@@ -15,7 +15,7 @@ DBDUMP=/var/tmp/"$DBNAME"_$(date +"%Y-%m-%d-%H-%M").sql
 mysqldump -h $DBHOST -u $DBUSER -p$DBPASSWORD $DBNAME > $DBDUMP
 
 # Send To Google Cloud Storage
-gsutil -m rsync $DBDUMP gs://$SITENAME-backup/shapshot-database/
+gsutil -m cp $DBDUMP gs://$SITENAME-backup/shapshot-database/
 
 # Remove Temporary Files
 rm $DBDUMP

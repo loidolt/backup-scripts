@@ -16,7 +16,7 @@ mysqldump -h $DBHOST -u $DBUSER -p$DBPASSWORD $DBNAME > $DBDUMP
 
 # Backup Site Files and Database to Google Cloud Storage
 gsutil -m rsync -r $WEBROOT gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
-gsutil -m rsync $DBDUMP gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
+gsutil -m cp $DBDUMP gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
 
 # Remove Temporary Files
 rm $DBDUMP
