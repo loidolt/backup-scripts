@@ -16,7 +16,5 @@ mysqldump -h $DBHOST -u $DBUSER -p$DBPASSWORD $DBNAME > $DBDUMP
 
 # Backup Site Files
 
-sudo tar zcvf -  $WEBROOT $DBDUMP | gsutil -m rsync -r gs://$SITENAME-backup/weekly/$(date +"%Y-%m-%d").tar
-
-#sudo gsutil -m rsync -r $WEBROOT gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
-#sudo gsutil -m rsync -r $DBDUMP gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
+sudo gsutil -m rsync -zr $WEBROOT gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
+sudo gsutil -m rsync -r $DBDUMP gs://$SITENAME-backup/$(date +"%Y-%m-%d")/
